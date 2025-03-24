@@ -62,7 +62,8 @@ class ServerConsole extends Widget
 
     protected function getSocket(): string
     {
-        $socket = str_replace(['https://', 'http://'], ['wss://', 'ws://'], $this->server->node->getConnectionAddress());
+        //$socket = str_replace(['https://', 'http://'], ['wss://', 'ws://'], $this->server->node->getConnectionAddress());
+        $socket = $this->server->node->getConnectionAddress();
         $socket .= sprintf('/api/servers/%s/ws', $this->server->uuid);
 
         return $socket;
